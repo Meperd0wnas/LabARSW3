@@ -3,7 +3,7 @@
 
 ## Daniel Ricardo Ruge Gomez
 
-### Parte I
+## Parte I
 
 #### 1
 
@@ -37,3 +37,6 @@ El cambio principal fue ya reemplazar por completo el uso de Queue por BlockingQ
 prueba de que con un limte bajo no hay sobreconsumo : 
 
 ![alt text](image-3.png)
+
+
+## Parte II
