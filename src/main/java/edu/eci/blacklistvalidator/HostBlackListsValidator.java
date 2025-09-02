@@ -3,6 +3,7 @@ package edu.eci.blacklistvalidator;
 import edu.eci.spamkeywordsdatasource.HostBlacklistsDataSourceFacade;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean; // MODIFICACIÓN: agregado
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,6 +50,10 @@ public class HostBlackListsValidator {
         int remainder = totalServers % N;
 
         AtomicInteger occurrencesGlobal = new AtomicInteger(0);
+
+        //  MODIFICACIÓN: bandera de parada
+        AtomicBoolean stopFlag = new AtomicBoolean(false); 
+        
         HostBlackListThread[] threads = new HostBlackListThread[N];
 
         int start = 0;
@@ -56,7 +61,11 @@ public class HostBlackListsValidator {
             int extra = (i < remainder) ? 1 : 0;
             int end = start + baseRange + extra - 1;
             if (end >= totalServers) end = totalServers - 1;
-            threads[i] = new HostBlackListThread(start, end, ipaddress, skds, occurrencesGlobal, BLACK_LIST_ALARM_COUNT);
+
+            // 🔹 MODIFICACIÓN: pasar stopFlag al constructor
+            threads[i] = new HostBlackListThread(start, end, ipaddress, skds,
+                    occurrencesGlobal, BLACK_LIST_ALARM_COUNT, stopFlag);
+
             start = end + 1;
         }
 
@@ -95,9 +104,6 @@ public class HostBlackListsValidator {
             skds.reportAsTrustworthy(ipaddress);
         }
 
-
-
         return blackListOcurrences;
     }
 }
-
