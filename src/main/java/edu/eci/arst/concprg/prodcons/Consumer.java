@@ -5,7 +5,6 @@
  */
 package edu.eci.arst.concprg.prodcons;
 
-import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 
 /**

@@ -57,3 +57,9 @@ prueba de que con un limte bajo no hay sobreconsumo :
  
 dado que Cada inmortal arranca con 100 puntos de vida. Si tienemos N jugadores, la suma inicial de toda la vida es 100 × N,
 ese debería ser el invariante ya que mientras nadie esté en medio de una pelea (un instante “congelado”), la sumatotal de la vida de todos los jugadores debería mantenerse siempre en 100 × N, porque cuando uno pierde puntos, el otro los gana en la misma cantidad.
+
+### 3
+
+![alt text](image-5.png)
+
+podemos ver que el invariante que propusimos no se cumple lo cual indica que seguramente hay problemas de sincronización en el acceso y actualización de la salud de los inmortales
