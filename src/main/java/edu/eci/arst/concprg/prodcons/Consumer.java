@@ -6,29 +6,31 @@
 package edu.eci.arst.concprg.prodcons;
 
 import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
 
 /**
  *
  * @author hcadavid
  */
-public class Consumer extends Thread{
+public class Consumer extends Thread {
     
-    private Queue<Integer> queue;
+    private BlockingQueue<Integer> queue;
     
-    
-    public Consumer(Queue<Integer> queue){
-        this.queue=queue;        
+    public Consumer(BlockingQueue<Integer> queue){
+        this.queue = queue;        
     }
     
     @Override
     public void run() {
         while (true) {
-
-            if (queue.size() > 0) {
-                int elem=queue.poll();
-                System.out.println("Consumer consumes "+elem);                                
+            try {
+                // el hilo queda bloqueado hasta que haya un elemento (Si la cola está vacía)
+                int elem = queue.take();
+                System.out.println("Consumer consumes " + elem);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break; // salir del ciclo si el hilo es interrumpido
             }
-            
         }
     }
 }
