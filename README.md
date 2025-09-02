@@ -100,3 +100,17 @@ dado que al momento de implementar los locks anidados fui cuidadoso y lo hice co
 
 
 para 10000 inmortales mi computador directamente se apago pero en general podemos ver como el invariate se cumple sin problema en cada caso "grande"
+
+### 10
+
+Sí, eliminar inmortales muertos directamente de la lista mientras los demás hilos siguen accediendo a ella puede generar una condición de carrera, ya que un hilo podría estar iterando o eligiendo un oponente al mismo tiempo que otro elimina un elemento, causando errores de concurrencia o inconsistencias; para evitarlo se debe sincronizar el acceso a la lista global de inmortales o, como alternativa más sencilla, marcar a los inmortales como muertos y omitirlos en las peleas en lugar de eliminarlos físicamente de la lista.
+
+implementacion:
+
+![alt text](image-13.png)
+
+concecuencia con muchos inmortales:
+
+![alt text](image-12.png)
+
+Al implementar la eliminación de inmortales durante la simulación se evidenció que, cuando hay una gran cantidad de hilos ejecutándose y accediendo a la misma lista compartida, se genera una ConcurrentModificationException. Esto ocurre porque mientras un hilo intenta recorrer la lista para verificar el estado de los inmortales, otro hilo la está modificando al eliminar elementos.

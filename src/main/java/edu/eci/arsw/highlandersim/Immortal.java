@@ -81,6 +81,11 @@ public class Immortal extends Thread {
                         updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
                     } else {
                         updateCallback.processReport(this + " says: " + i2 + " is already dead!\n");
+
+                    } if (this.health <= 0) {
+
+                        immortalsPopulation.remove(this); // Eliminarse a sí mismo
+                        updateCallback.processReport(this + " has died and was removed.\n");
                     }
                 }
             }
