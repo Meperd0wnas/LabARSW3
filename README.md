@@ -66,9 +66,14 @@ podemos ver que el invariante que propusimos no se cumple lo cual indica que seg
 
 ### 4
 
-añadí las funciones pauseAll() y resumeAll() en la clase Immortal, usando una variable AtomicBoolean para coordinar la pausa de todos los hilos de forma segura. Luego, en la interfaz (ControlFrame),modifique los botones, el de “Pause and check” primero pausa todos los hilos antes de calcular y mostrar la suma de salud y el de “Resume” reanuda la ejecución de los hilos pausados. Sin embargo podemos ver que el invariante sigue sin cumplirse 
+añadí las funciones pauseAll() y resumeAll() en la clase Immortal, usando una variable AtomicBoolean para coordinar la pausa de todos los hilos de forma segura. Luego, en la interfaz (ControlFrame),modifique los botones, el de “Pause and check” primero pausa todos los hilos antes de calcular y mostrar la suma de salud y el de “Resume” reanuda la ejecución de los hilos pausados. 
+
+### 5
+
 
 ![alt text](image-6.png)
+
+Sin embargo podemos ver que el invariante sigue sin cumplirse 
 
 
 
