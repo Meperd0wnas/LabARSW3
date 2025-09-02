@@ -98,8 +98,5 @@ dado que al momento de implementar los locks anidados fui cuidadoso y lo hice co
 ![alt text](image-10.png)
 
 
-10000 inmortales 
 
-![alt text](image-11.png)
-
-podemos ver como el invariate se cumple sin problema en cada caso
+para 10000 inmortales mi computador directamente se apago pero en general podemos ver como el invariate se cumple sin problema en cada caso "grande"
