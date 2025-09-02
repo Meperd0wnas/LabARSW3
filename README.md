@@ -25,3 +25,15 @@ JVMachine ahora:
 
 
 ![alt text](image-2.png)
+
+
+### 3
+
+cambios:
+
+El cambio principal fue ya reemplazar por completo el uso de Queue por BlockingQueue, de modo que el límite de stock no tenga que controlarse manualmente con la variable stockLimit, sino que queda garantizado por la propia cola bloqueante al definir su capacidad en el constructor (new ArrayBlockingQueue<>(stockLimit)). Con esto, el productor ya no necesita preguntar constantemente si hay espacio disponible, si no que simplemente usa put(), que lo bloquea cuando la cola está llena y libera el hilo cuando hay espacio, evitando el consumo innecesario de CPU y respetando automáticamente el límite de elementos en la cola.
+
+
+prueba de que con un limte bajo no hay sobreconsumo : 
+
+![alt text](image-3.png)

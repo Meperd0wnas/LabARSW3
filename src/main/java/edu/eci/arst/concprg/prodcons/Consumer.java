@@ -27,6 +27,10 @@ public class Consumer extends Thread {
                 // el hilo queda bloqueado hasta que haya un elemento (Si la cola está vacía)
                 int elem = queue.take();
                 System.out.println("Consumer consumes " + elem);
+
+                // Consumidor lento
+                Thread.sleep(2000);
+
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break; // salir del ciclo si el hilo es interrumpido
