@@ -1,5 +1,5 @@
 
-## Lab ARSW3
+# Lab ARSW3
 
-### Daniel Ricardo Ruge Gomez
+## Daniel Ricardo Ruge Gomez
 
