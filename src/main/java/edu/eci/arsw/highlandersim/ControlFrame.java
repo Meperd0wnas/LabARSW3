@@ -88,9 +88,9 @@ public class ControlFrame extends JFrame {
         btnPauseAndCheck.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                /*
-				 * COMPLETAR
-                 */
+                // implementacion de pausa
+                Immortal.pauseAll();
+
                 int sum = 0;
                 for (Immortal im : immortals) {
                     sum += im.getHealth();
@@ -108,9 +108,9 @@ public class ControlFrame extends JFrame {
 
         btnResume.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                /**
-                 * IMPLEMENTAR
-                 */
+                
+                // implementacion de ranudar
+                Immortal.resumeAll();
 
             }
         });
