@@ -7,7 +7,6 @@ package edu.eci.spamkeywordsdatasource;
 
 import java.util.Map;
 import java.util.Objects;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
