@@ -45,3 +45,15 @@ prueba de que con un limte bajo no hay sobreconsumo :
 
 
  modifique el código para que los hilos dejen de procesar servidores en cuanto se alcanzan las cinco ocurrencias, en lugar de recorrer toda la lista completa. Para esto se agregó un control de concurrencia mediante AtomicInteger (como lo vimos en clase) para llevar el conteo global de ocurrencias y un stopFlag compartido (tipo AtomicBoolean) que indica cuándo detener la búsqueda. Ambos tipos atómicos garantizan que las operaciones del flag sean atómicas, visibles inmediatamente para todos los hilos y eviten condiciones de carrera en el acceso a estas variables.
+
+
+ ## Parte III
+
+ ### 1
+
+ El programa simula hilos llamados inmortales que pelean entre sí indefinidamente, restando y sumando salud. La interfaz permite crearlos y mostrarlos, pero aún no controla bien la ejecución: el botón de pausa solo calcula la salud total sin detenerlos, el de reanudar está vacío y el de detener no funciona. Además, la pelea no está sincronizada, lo que puede generar condiciones de carrera al modificar la salud de un mismo inmortal al mismo tiempo.
+
+ ### 2 
+ 
+dado que Cada inmortal arranca con 100 puntos de vida. Si tienemos N jugadores, la suma inicial de toda la vida es 100 × N,
+ese debería ser el invariante ya que mientras nadie esté en medio de una pelea (un instante “congelado”), la sumatotal de la vida de todos los jugadores debería mantenerse siempre en 100 × N, porque cuando uno pierde puntos, el otro los gana en la misma cantidad.
