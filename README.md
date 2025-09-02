@@ -82,3 +82,24 @@ Sin embargo podemos ver que el invariante sigue sin cumplirse
 
 identifique que la region critica estaba en el metodo figth asi que apliqué el meotodo de locks sincronizados anidados en fight para proteger la transferencia de salud con un orden de bloqueo fijo usando hashCode() para evitar deadlocks 
 
+### 7 y 8
+
+dado que al momento de implementar los locks anidados fui cuidadoso y lo hice con un orden fijo no experimente problemas de deadlocks por lo que estos dos puntos me los "salte"
+
+### 9
+
+100 inmortales
+
+![alt text](image-9.png)
+
+
+1000 inmortales
+
+![alt text](image-10.png)
+
+
+10000 inmortales 
+
+![alt text](image-11.png)
+
+podemos ver como el invariate se cumple sin problema en cada caso
