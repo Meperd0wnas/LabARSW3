@@ -63,14 +63,29 @@ public class Immortal extends Thread {
     }
 
     public void fight(Immortal i2) {
-        if (i2.getHealth() > 0) {
-            i2.changeHealth(i2.getHealth() - defaultDamageValue);
-            this.health += defaultDamageValue;
-            updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
-        } else {
-            updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
+            // 🔹 Evitar deadlocks: siempre bloquear en un orden fijo como vimos en clase con hashCodes
+            Immortal first, second;
+            if (this.hashCode() < i2.hashCode()) {
+                first = this;
+                second = i2;
+            } else {
+                first = i2;
+                second = this;
+            }
+
+            synchronized (first) {
+                synchronized (second) {
+                    if (i2.getHealth() > 0 && this.getHealth() > 0) {
+                        i2.changeHealth(i2.getHealth() - defaultDamageValue);
+                        this.health += defaultDamageValue;
+                        updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
+                    } else {
+                        updateCallback.processReport(this + " says: " + i2 + " is already dead!\n");
+                    }
+                }
+            }
         }
-    }
+
 
     public void changeHealth(int v) {
         health = v;

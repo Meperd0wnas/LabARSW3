@@ -76,5 +76,9 @@ añadí las funciones pauseAll() y resumeAll() en la clase Immortal, usando una 
 
 Sin embargo podemos ver que el invariante sigue sin cumplirse 
 
+### 6
 
+![alt text](image-8.png)
+
+identifique que la region critica estaba en el metodo figth asi que apliqué el meotodo de locks sincronizados anidados en fight para proteger la transferencia de salud con un orden de bloqueo fijo usando hashCode() para evitar deadlocks 
 
