@@ -126,6 +126,21 @@ public class ControlFrame extends JFrame {
         btnStop.setForeground(Color.RED);
         toolBar.add(btnStop);
 
+        //implementacion de stop
+
+    btnStop.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            if (immortals != null) {
+                for (Immortal im : immortals) {
+                    im.stopRunning();  // cada hilo se detendrá correctamente
+                }
+            }
+            immortals.clear(); // limpiar la lista para reiniciar
+            btnStart.setEnabled(true);
+        }
+    });
+            
+
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
@@ -145,7 +160,7 @@ public class ControlFrame extends JFrame {
         try {
             int ni = Integer.parseInt(numOfImmortals.getText());
 
-            // ✅ Cambiado a CopyOnWriteArrayList
+            //  Cambiado a CopyOnWriteArrayList
             CopyOnWriteArrayList<Immortal> il = new CopyOnWriteArrayList<>();
 
             for (int i = 0; i < ni; i++) {

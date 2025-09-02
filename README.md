@@ -120,3 +120,13 @@ Arreglo:
 ![alt text](image-14.png)
 
 El cambio consistió en reemplazar la estructura ArrayList por una CopyOnWriteArrayList, lo que permitió que varios hilos accedieran y modificaran la lista de inmortales de manera concurrente sin necesidad de sincronización explícita. Esta clase maneja internamente las copias de la lista en cada modificación, evitando condiciones de carrera y eliminando el riesgo de ConcurrentModificationException
+
+### 11
+
+implementacion del stop
+
+![alt text](image-15.png)
+
+![alt text](image-16.png)
+
+![alt text](image-17.png)
