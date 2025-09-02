@@ -114,3 +114,9 @@ concecuencia con muchos inmortales:
 ![alt text](image-12.png)
 
 Al implementar la eliminación de inmortales durante la simulación se evidenció que, cuando hay una gran cantidad de hilos ejecutándose y accediendo a la misma lista compartida, se genera una ConcurrentModificationException. Esto ocurre porque mientras un hilo intenta recorrer la lista para verificar el estado de los inmortales, otro hilo la está modificando al eliminar elementos.
+
+Arreglo:
+
+![alt text](image-14.png)
+
+El cambio consistió en reemplazar la estructura ArrayList por una CopyOnWriteArrayList, lo que permitió que varios hilos accedieran y modificaran la lista de inmortales de manera concurrente sin necesidad de sincronización explícita. Esta clase maneja internamente las copias de la lista en cada modificación, evitando condiciones de carrera y eliminando el riesgo de ConcurrentModificationException
